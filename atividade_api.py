@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
 import json
 
 app = FastAPI()
@@ -46,7 +46,6 @@ def get_users_v2(user_id: int):
     for usuario in usuarios:
         if usuario["id"] == user_id:
             return usuario
-    raise HTTPException(status_code=404, detail="Usuário não encontrado")
 
 @app.get("/api/v3/users")
 def get_users_v3(nome: str = ""):
